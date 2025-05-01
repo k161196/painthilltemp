@@ -4,7 +4,7 @@
 // const basePath = '/painthilltemp';
 
 const nextConfig = {
-  // basePath: isProd ? basePath : '',
+   basePath: isProd ? '' : '',
   // assetPrefix: isProd ? basePath : '',
   output: "export",
   images: {
