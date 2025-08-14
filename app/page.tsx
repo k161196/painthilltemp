@@ -16,7 +16,7 @@ import Insta from './components/Insta/index';
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Banner />
       <Aboutus />
       <Digital />
