@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Form Submission</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        .error { color: red; margin-top: 10px; }
+        .success { color: green; margin-top: 10px; }
+        .loading { opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <h1>Test Quote Form Submission</h1>
+    <form id="quoteForm">
+        <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone (10 digits) *</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="service">Service *</label>
+            <select id="service" name="service" required>
+                <option value="">Select service</option>
+                <option value="rental">Rental Painting</option>
+                <option value="texture">Texture Painting</option>
+                <option value="waterproofing">Waterproofing</option>
+                <option value="onewall">One Wall Painting</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="homeType">Home Type *</label>
+            <select id="homeType" name="homeType" required>
+                <option value="">Select home type</option>
+                <option value="1rk">1 RK</option>
+                <option value="1bhk">1 BHK</option>
+                <option value="2bhk">2 BHK</option>
+                <option value="3bhk">3 BHK</option>
+                <option value="villa">Villa</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="pincode">Pincode (6 digits) *</label>
+            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="consultationType">Consultation Type *</label>
+            <select id="consultationType" name="consultationType" required>
+                <option value="">Select consultation type</option>
+                <option value="call">Phone Call</option>
+                <option value="visit">Site Visit</option>
+            </select>
+        </div>
+        
+        <div class="form-group" id="visitFields" style="display: none;">
+            <label for="date">Visit Date</label>
+            <input type="date" id="date" name="date">
+            <label for="time" style="margin-top: 10px;">Visit Time</label>
+            <select id="time" name="time">
+                <option value="">Select time</option>
+                <option value="9:00 - 10:30 AM">9:00 - 10:30 AM</option>
+                <option value="10:30 - 12:00 PM">10:30 - 12:00 PM</option>
+                <option value="12:00 - 1:30 PM">12:00 - 1:30 PM</option>
+                <option value="3:00 - 4:30 PM">3:00 - 4:30 PM</option>
+                <option value="4:30 - 6:00 PM">4:30 - 6:00 PM</option>
+                <option value="6:00 - 7:30 PM">6:00 - 7:30 PM</option>
+            </select>
+        </div>
+        
+        <button type="submit" id="submitBtn">Submit Quote Request</button>
+        
+        <div id="message"></div>
+    </form>
+
+    <script>
+        const SUPABASE_URL = 'https://srjlxzbxmnzogdsqrmdf.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNyamx4emJ4bW56b2dkc3FybWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUxNzAxMTEsImV4cCI6MjA3MDc0NjExMX0.eqUgKaZ0GHUse4YSNbpkR1NfVF1Ss6ch57TMdhwZPp0';
+
+        // Generate session ID
+        function generateSessionId() {
+            return Date.now() + '-' + Math.random().toString(36).substring(2, 15);
+        }
+
+        // Show/hide visit fields
+        document.getElementById('consultationType').addEventListener('change', function() {
+            const visitFields = document.getElementById('visitFields');
+            if (this.value === 'visit') {
+                visitFields.style.display = 'block';
+                document.getElementById('date').required = true;
+                document.getElementById('time').required = true;
+            } else {
+                visitFields.style.display = 'none';
+                document.getElementById('date').required = false;
+                document.getElementById('time').required = false;
+            }
+        });
+
+        // Set minimum date (day after tomorrow)
+        const dateInput = document.getElementById('date');
+        const dayAfterTomorrow = new Date();
+        dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2);
+        dateInput.min = dayAfterTomorrow.toISOString().split('T')[0];
+
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const messageDiv = document.getElementById('message');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            document.body.classList.add('loading');
+            messageDiv.innerHTML = '';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Add session ID
+            data.sessionId = generateSessionId();
+            
+            try {
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/submit-quote`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    messageDiv.innerHTML = `<div class="success">✅ Success! Quote ID: ${result.quoteId}</div>`;
+                    this.reset();
+                } else {
+                    messageDiv.innerHTML = `<div class="error">❌ Error: ${result.error}</div>`;
+                }
+            } catch (error) {
+                messageDiv.innerHTML = `<div class="error">❌ Network error: ${error.message}</div>`;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Quote Request';
+                document.body.classList.remove('loading');
+            }
+        });
+    </script>
+</body>
+</html>
