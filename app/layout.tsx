@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from './components/Navbar/index';
 import Footer from './components/Footer/index';
+import SessionProvider from './components/SessionProvider/index';
 
 export const metadata = {
   title: 'painthill',
@@ -14,10 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="overflow-x-hidden">
+        <SessionProvider>
+          <Navbar />
+          <main className="overflow-x-hidden relative">
+            {children}
+          </main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   )

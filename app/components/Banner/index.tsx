@@ -1,109 +1,73 @@
-//"use client"
-import Image from "next/image";
-import { useEffect, useState } from "react";
 
-//function useWindowSize() {
-//  // Initialize state with undefined width/height so server and client renders match
-//  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-//  const [windowSize, setWindowSize] = useState({
-//    //width: undefined,
-//    //height: undefined,
-//  });
-//
-//  useEffect(() => {
-//    // only execute all the code below in client side
-//    // Handler to call on window resize
-//    function handleResize() {
-//      // Set window width/height to state
-//      setWindowSize({
-//        width: window.innerWidth,
-//        height: window.innerHeight,
-//      });
-//    }
-//
-//    // Add event listener
-//    window.addEventListener("resize", handleResize);
-//
-//    // Call handler right away so state gets updated with initial window size
-//    handleResize();
-//
-//    // Remove event listener on cleanup
-//    return () => window.removeEventListener("resize", handleResize);
-//  }, []); // Empty array ensures that effect is only run on mount
-//  return windowSize;
-//}
+'use client';
+
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import GetQuoteModal from "../GetQuoteModal";
 
 const Banner = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [bannerText, setBannerText] = useState("Transform Your Walls, Elevate Your Space.");
+
   const bannerTexts:string[] =  ["Transform Your Walls, Elevate Your Space.",
-    "Bringing Life to Your Walls with Colors & Creativity.",
+    "Bringing Walls to Life with Colors And Creativity.",
     "Your Vision, Our Art – Stunning Wall Transformations!",
     "Let Your Walls Tell a Story with Our Paintings.",
     "From Imagination to Reality – We Paint Your Dreams."]
-  let bannerText: string = bannerTexts[Math.floor(Math.random() * bannerTexts.length)];
-  //const size:any = useWindowSize();
+
+  useEffect(() => {
+    // Set random text only on client side
+    setBannerText(bannerTexts[Math.floor(Math.random() * bannerTexts.length)]);
+  }, []);
 
   return (
-    <div>
+    <div className="relative bg-blue">
+      <div className="relative min-h-screen overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          loop
+          playsInline
+          muted
+          preload="auto"
+          poster="/images/team/teamimg.png"
+        >
+          <source src="https://videos.pexels.com/video-files/8293133/8293133-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        </video>
 
-      <video className="hidden md:block" width="100%" autoPlay loop playsInline muted preload="auto" poster="/images/team/teamimg.png">
-        <source src="https://videos.pexels.com/video-files/8293133/8293133-hd_1920_1080_30fps.mp4" type="video/mp4" />
-        <Image src="/images/team/teamimg.png" alt="office-image" height={684} width={1296} />
-      </video>
-      {/*     <div>
-      {size.width}px / {size.height}px
-    </div>*/}
+        <div className="absolute inset-0 bg-blue/70 z-0"></div>
 
-       <div className='mx-auto max-w-7xl  sm:py-10 px-6 lg:px-8'>
-        <div className='grid grid-rows-1 my-16 md:my-0'>
-
-          <div className="mx-auto sm:mx-0">
-            <div className='py-3 text-center lg:text-start'>
-              <button className='text-blue bg-lightblue hover:shadow-xl text-sm md:text-lg font-bold px-6 py-1 rounded-3xl tracking-wider hover:text-white hover:bg-black'>Wall Painting.</button>
+        <div className='relative z-10 mx-auto max-w-7xl min-h-screen flex items-center px-6 lg:px-8'>
+          <div className='w-full flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8'>
+            <div className="text-white w-full lg:max-w-2xl relative z-10">
+              <div className='py-3 text-center lg:text-start'>
+                <p className='text-sm md:text-base uppercase tracking-wider'>WHO WE ARE</p>
+              </div>
+              <div className="py-3 text-center lg:text-start">
+                <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight'>
+                  {bannerText}
+                </h1>
+              </div>
+              <div className='mt-8 text-center lg:text-start relative z-20'>
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className='relative z-30 inline-block text-sm md:text-lg font-semibold hover:shadow-xl bg-white text-blue py-3 px-8 md:py-4 md:px-10 rounded-full hover:bg-lightgrey transition-colors cursor-pointer pointer-events-auto'
+                >
+                  Get a Free Quote
+                </button>
+              </div>
             </div>
-            <div className="py-3 text-center lg:text-start">
-              <h1 className='text-6xl lg:text-80xl font-bold text-darkpurple'>
-                {bannerText}
-              </h1>
-            </div>
-            <div className='text-center lg:text-start'>
-              <button className='text-sm md:text-xl font-semibold hover:shadow-xl bg-blue text-white py-3 px-6 md:py-5 md:px-14 rounded-full hover:bg-hoblue'>
-                Get A Free Quote
-              </button>
+
+            <div className="hidden lg:block flex-shrink-0">
+              <Image src="/images/banner/1.png" alt="Wall painting illustration" width={600} height={600} />
             </div>
           </div>
-
-
-
         </div>
       </div>
 
-      {/*<div className='mx-auto max-w-7xl my-10 sm:py-10 px-6 lg:px-8'>
-        <div className='grid grid-cols-1 lg:grid-cols-2 my-16'>
-
-          <div className="mx-auto sm:mx-0">
-            <div className='py-3 text-center lg:text-start'>
-              <button className='text-blue bg-lightblue hover:shadow-xl text-sm md:text-lg font-bold px-6 py-1 rounded-3xl tracking-wider hover:text-white hover:bg-black'>Wall Painting.</button>
-            </div>
-            <div className="py-3 text-center lg:text-start">
-              <h1 className='text-6xl lg:text-80xl font-bold text-darkpurple'>
-                {bannerText}
-              </h1>
-            </div>
-            <div className='my-7 text-center lg:text-start'>
-              <button className='text-sm md:text-xl font-semibold hover:shadow-xl bg-blue text-white py-3 px-6 md:py-5 md:px-14 rounded-full hover:bg-hoblue'>
-                Get Started
-              </button>
-            </div>
-          </div>
-
-
-          <div className='lg:pt-20 hidden lg:block'>
-            <Image src="/images/banner/banner1.svg" alt="hero-image" width={800} height={642} />
-          </div>
-
-        </div>
-      </div>
-      */}
+      {/* Get Quote Modal */}
+      <GetQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

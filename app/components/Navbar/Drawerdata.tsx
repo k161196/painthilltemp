@@ -20,7 +20,11 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-const Data = () => {
+interface DataProps {
+    onQuoteClick?: () => void;
+}
+
+const Data: React.FC<DataProps> = ({ onQuoteClick }) => {
     return (
         <div className="rounded-md max-w-sm w-full mx-auto">
             <div className="flex-1 space-y-4 py-1">
@@ -40,6 +44,12 @@ const Data = () => {
                             </Link>
                         ))}
                         <div className="mt-4"></div>
+                        <button 
+                            onClick={onQuoteClick}
+                            className="bg-blue w-full hover:bg-btnblue text-white font-medium py-2 px-4 rounded mb-2"
+                        >
+                            Get A Free Quote
+                        </button>
                         <button className="bg-navyblue w-full hover:text-white text-white border border-purple font-medium py-2 px-4 rounded">
                             Contact Us
                         </button>

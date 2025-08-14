@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronRightIcon } from '@heroicons/react/20/solid'
 
 interface datatype {
     heading: string;
@@ -41,9 +39,9 @@ const Aboutdata: datatype[] = [
 const Aboutus = () => {
     return (
 
-    <div id="aboutus-section">
-      <div className='mx-auto max-w-7xl px-4 py-24 my-32 lg:px-10 bg-lightgrey rounded-3xl relative'>
-        <Image src="/images/aboutus/dots.svg" width={100} height={100} alt="dots-image" className="absolute bottom-1 -left-20" />
+    <div id="aboutus-section" className="overflow-x-hidden">
+      <div className='mx-auto max-w-7xl px-4 py-24 my-32 lg:px-10 bg-lightgrey rounded-3xl relative overflow-x-hidden'>
+        <Image src="/images/aboutus/dots.svg" width={100} height={100} alt="dots-image" className="absolute bottom-1 -left-10 md:-left-20" />
         <h3 className='text-center text-blue text-lg tracking-widest'>ABOUT US</h3>
         <h4 className='text-center text-4xl lg:text-65xl font-bold'>Know more about us.</h4>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-1 gap-x-8'>

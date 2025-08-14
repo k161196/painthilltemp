@@ -1,11 +1,12 @@
 "use client"
 import { Disclosure } from '@headlessui/react';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
 import Contactusform from './Contactus';
+import GetQuoteModal from '../GetQuoteModal';
 
 interface NavigationItem {
     name: string;
@@ -28,9 +29,10 @@ function classNames(...classes: string[]) {
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = React.useState(false);
+    const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
     return (
-        <Disclosure as="nav" className="navbar">
+        <Disclosure as="nav" className="navbar bg-white">
             <>
                 <div className="mx-auto max-w-7xl p-3 md:p-4 lg:px-8">
                     <div className="relative flex h-12 sm:h-20 items-center">
@@ -64,7 +66,12 @@ const Navbar = () => {
                                 </div>
 
                             </div>
-                            <button className='hidden lg:flex justify-end text-xl font-semibold bg-transparent py-4 px-6 lg:px-12 navbutton rounded-full hover:bg-navyblue hover:text-white'>Get A Free Quote</button> 
+                            <button 
+                                onClick={() => setIsQuoteModalOpen(true)}
+                                className='hidden lg:flex justify-end text-xl font-semibold bg-transparent py-4 px-6 lg:px-12 navbutton rounded-full hover:bg-navyblue hover:text-white cursor-pointer'
+                            >
+                                Get A Free Quote
+                            </button> 
                             {/*<Contactusform />*/}
                         </div>
 
@@ -80,11 +87,17 @@ const Navbar = () => {
                         {/* DRAWER LINKS DATA */}
 
                         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-                            <Drawerdata />
+                            <Drawerdata onQuoteClick={() => {
+                                setIsOpen(false);
+                                setIsQuoteModalOpen(true);
+                            }} />
                         </Drawer>
 
                     </div>
                 </div>
+                
+                {/* Get Quote Modal */}
+                <GetQuoteModal isOpen={isQuoteModalOpen} onClose={() => setIsQuoteModalOpen(false)} />
             </>
         </Disclosure>
     )

@@ -11,6 +11,22 @@
 body {
   margin: 0;
   font-family: 'Urbanist', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body,
+html,
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 html:not([data-scroll="0"]) .navbar {
@@ -18,12 +34,11 @@ html:not([data-scroll="0"]) .navbar {
   top: 0;
   width: 100%;
   background-color: white !important;
-  opacity: 1.9;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
   transition: 0.4s linear;
   padding: 0px !important;
   /* height: 20px; */
-  z-index: 3;
+  z-index: 50;
 }
 
 html:not([data-scroll="0"]) .navbar>div>div {
@@ -40,8 +55,11 @@ html {
 }
 
 .navbar {
+  position: relative;
+  background-color: white;
   border-bottom: 0.5px solid rgba(196, 196, 196, 0.75);
-  ;
+  z-index: 40;
+  isolation: isolate;
 }
 
 .hover-underline {
@@ -90,7 +108,13 @@ html {
 
 .comma-pos {
   top: -40px;
-  left: -121px;
+  left: -60px;
+}
+
+@media only screen and (max-width: 768px) {
+  .comma-pos {
+    left: -20px;
+  }
 }
 
 .border-right {
@@ -134,7 +158,13 @@ html {
 
 .girldoodle {
   top: 12px;
-  right: -115px;
+  right: -60px;
+}
+
+@media only screen and (max-width: 768px) {
+  .girldoodle {
+    display: none;
+  }
 }
 
 .marginFeature {
@@ -242,24 +272,7 @@ html {
   background-position: 84% 109%, 12% 18%;
 }
 
-.footer-icons {
-  box-shadow: 0px 19px 28px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.footer-icons {
-  transition: .5s;
-}
-
-.footer-icons:hover {
-  transform: translateY(-8px);
-}
+/* Removed old footer-icons styles - using inline SVGs now */
 
 .space-links {
   transition: .3s;
@@ -273,7 +286,7 @@ html {
   font-family: 'Dancing Script', cursive !important;
   transform: rotate(-10.06deg);
   text-align: center;
-  margin-left: -340px;
+  margin-left: -200px;
 }
 
 @media only screen and (max-width: 466px) {
@@ -284,11 +297,11 @@ html {
 
 .toggleImage {
   position: absolute;
-  right: 47rem;
+  right: 20rem;
   top: 2rem;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1400px) {
   .toggleImage {
     display: none;
   }
