@@ -13,30 +13,30 @@ const footerSections: FooterSection[] = [
         id: 1,
         title: "Services",
         links: [
-            { name: 'Wall Painting', href: '#services' },
-            { name: 'Texture Painting', href: '#services' },
-            { name: 'Interior Design', href: '#services' },
-            { name: 'Commercial Projects', href: '#services' },
+            { name: 'Wall Painting', href: '/services#wall-painting' },
+            { name: 'Texture Painting', href: '/services#texture-painting' },
+            { name: 'Interior Design', href: '/services#interior-design' },
+            { name: 'Commercial Projects', href: '/services#commercial-projects' },
         ],
     },
     {
         id: 2,
         title: "Resources",
         links: [
-            { name: 'Gallery', href: '#gallery' },
-            { name: 'Testimonials', href: '#testimonials' },
-            { name: 'Blog', href: '#blog' },
-            { name: 'Support', href: '#support' }
+            { name: 'Gallery', href: '/gallery' },
+            { name: 'Testimonials', href: '/#testimonials' },
+            { name: 'Blog', href: '/blog' },
+            { name: 'Support', href: '/support' }
         ]
     },
     {
         id: 3,
         title: "Company",
         links: [
-            { name: 'About', href: '#about' },
-            { name: 'Careers', href: '#careers' },
-            { name: 'Contact', href: '#contact' },
-            { name: 'Partners', href: '#partners' }
+            { name: 'About', href: '/about' },
+            { name: 'Careers', href: '/careers' },
+            { name: 'Contact', href: '/contact' },
+            { name: 'Partners', href: '/partners' }
         ]
     }
 ]
@@ -112,9 +112,6 @@ const footer = () => {
                             </Link>
                             <Link href="/terms" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                                 Terms of Service
-                            </Link>
-                            <Link href="/cookies" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                                Cookies Settings
                             </Link>
                         </div>
                     </div>

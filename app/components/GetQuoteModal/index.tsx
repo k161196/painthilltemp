@@ -8,7 +8,7 @@ interface GetQuoteModalProps {
   onClose: () => void;
 }
 
-type ServiceType = 'rental' | 'texture' | 'waterproofing' | 'onewall';
+type ServiceType = 'rental' | 'texture';
 type HomeType = '1rk' | '1bhk' | '2bhk' | '3bhk' | 'villa' | 'other';
 
 const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
@@ -32,8 +32,6 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
   const services = [
     { id: 'rental', name: 'Rental Painting', icon: '🏠', description: 'Complete home painting' },
     { id: 'texture', name: 'Texture Painting', icon: '🎨', description: 'Designer wall textures' },
-    { id: 'waterproofing', name: 'Waterproofing', icon: '💧', description: 'Protect from moisture' },
-    { id: 'onewall', name: 'One Wall Painting', icon: '🖼️', description: 'Feature wall painting' },
   ];
 
   const timeSlots = [
