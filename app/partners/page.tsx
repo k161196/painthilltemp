@@ -134,7 +134,7 @@ export default function Partners() {
         <div className="border border-gray-300 rounded-lg p-12 text-center bg-white">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">Become a Partner</h3>
           <p className="text-gray-700 mb-8 max-w-2xl mx-auto text-base">
-            Join our network of partners and let's create beautiful spaces together. We're always looking for 
+            Join our network of partners and let&apos;s create beautiful spaces together. We&apos;re always looking for 
             companies that share our vision of quality and excellence.
           </p>
           <a 

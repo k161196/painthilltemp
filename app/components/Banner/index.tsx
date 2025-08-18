@@ -2,23 +2,23 @@
 'use client';
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import GetQuoteModal from "../GetQuoteModal";
 
 const Banner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bannerText, setBannerText] = useState("Transform Your Walls, Elevate Your Space.");
 
-  const bannerTexts:string[] =  ["Transform Your Walls, Elevate Your Space.",
+  const bannerTexts = useMemo(() => ["Transform Your Walls, Elevate Your Space.",
     "Bringing Walls to Life with Colors And Creativity.",
     "Your Vision, Our Art – Stunning Wall Transformations!",
     "Let Your Walls Tell a Story with Our Paintings.",
-    "From Imagination to Reality – We Paint Your Dreams."]
+    "From Imagination to Reality – We Paint Your Dreams."], []);
 
   useEffect(() => {
     // Set random text only on client side
     setBannerText(bannerTexts[Math.floor(Math.random() * bannerTexts.length)]);
-  }, []);
+  }, [bannerTexts]);
 
   return (
     <div className="relative bg-blue">

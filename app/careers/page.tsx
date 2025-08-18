@@ -98,7 +98,7 @@ export default function Careers() {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Join the Paint Hill Family</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Build a colorful career with Mumbai's leading painting service company
+            Build a colorful career with Mumbai&apos;s leading painting service company
           </p>
         </div>
 
@@ -109,14 +109,14 @@ export default function Careers() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <div>
                 <p className="text-gray-700 mb-4">
-                  At Paint Hill, we believe our employees are our greatest asset. We've built a culture 
+                  At Paint Hill, we believe our employees are our greatest asset. We&apos;ve built a culture 
                   that values creativity, craftsmanship, and customer satisfaction. When you join our team, 
-                  you're not just getting a job – you're becoming part of a family that's passionate about 
+                  you&apos;re not just getting a job – you&apos;re becoming part of a family that&apos;s passionate about 
                   transforming spaces and lives.
                 </p>
                 <p className="text-gray-700">
                   We offer opportunities for growth, continuous learning, and the chance to work on exciting 
-                  projects across Mumbai. Whether you're an experienced professional or just starting your 
+                  projects across Mumbai. Whether you&apos;re an experienced professional or just starting your 
                   career, Paint Hill provides the platform to showcase your skills and grow.
                 </p>
               </div>
@@ -207,7 +207,7 @@ export default function Careers() {
         <div className="border border-gray-300 rounded-lg p-12 text-center bg-white">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">Join Our Team</h3>
           <p className="text-gray-700 mb-8 max-w-2xl mx-auto text-base">
-            We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.
+            We&apos;re always looking for talented individuals. Send us your resume and we&apos;ll keep you in mind for future opportunities.
           </p>
           <a 
             href="tel:+918767520926" 

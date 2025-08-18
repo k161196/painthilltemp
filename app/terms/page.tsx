@@ -23,7 +23,7 @@ export default function TermsAndConditions() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Agreement to Terms</h2>
             <p className="text-gray-700 mb-4">
-              By accessing or using Paint Hill's services, you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, then you may not access our services.
+              By accessing or using Paint Hill&apos;s services, you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, then you may not access our services.
             </p>
           </section>
 
@@ -92,7 +92,7 @@ export default function TermsAndConditions() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Limitation of Liability</h2>
             <p className="text-gray-700 mb-4">
-              Paint Hill's liability for any claim arising from our services shall not exceed the total amount paid for the specific service in question. We are not liable for indirect, incidental, or consequential damages.
+              Paint Hill&apos;s liability for any claim arising from our services shall not exceed the total amount paid for the specific service in question. We are not liable for indirect, incidental, or consequential damages.
             </p>
           </section>
 
