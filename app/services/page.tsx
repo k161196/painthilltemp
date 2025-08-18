@@ -88,7 +88,7 @@ export default function Services() {
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">What's Included:</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">What&apos;s Included:</h3>
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start">

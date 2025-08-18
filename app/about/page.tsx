@@ -69,12 +69,12 @@ export default function About() {
               <p className="text-gray-600 mb-4">
                 Paint Hill began with a simple vision: to make professional painting services accessible, 
                 reliable, and exceptional for everyone. What started as a small team of passionate painters 
-                in Mumbai in 1993 has grown into one of the city's most trusted painting service providers.
+                in Mumbai in 1993 has grown into one of the city&apos;s most trusted painting service providers.
               </p>
               <p className="text-gray-600 mb-4">
-                Over the years, we've painted thousands of homes, offices, and commercial spaces, 
+                Over the years, we&apos;ve painted thousands of homes, offices, and commercial spaces, 
                 each project strengthening our commitment to quality and customer satisfaction. 
-                Our journey has been colorful, quite literally, and we're proud of the trust our 
+                Our journey has been colorful, quite literally, and we&apos;re proud of the trust our 
                 customers have placed in us.
               </p>
               <p className="text-gray-600">

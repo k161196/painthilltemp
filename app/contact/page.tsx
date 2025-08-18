@@ -180,7 +180,7 @@ export default function Contact() {
 
               {submitStatus === 'success' && (
                 <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-800 text-center">Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+                  <p className="text-green-800 text-center">Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.</p>
                 </div>
               )}
 
