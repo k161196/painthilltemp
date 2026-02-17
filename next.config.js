@@ -9,6 +9,13 @@ const nextConfig = {
   output: "export",
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+        pathname: "/photos/**",
+      },
+    ],
   },
   env: {
     BASE_PATH: process.env.BASE_PATH,
