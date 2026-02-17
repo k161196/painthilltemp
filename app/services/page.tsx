@@ -14,7 +14,7 @@ const services = [
       '1-year service warranty'
     ],
     price: 'Starting from ₹12/sq ft',
-    image: '/images/Banner/banner.png'
+    image: '/images/services/wall-painting.jpg'
   },
   {
     id: 'texture-painting',
@@ -28,7 +28,7 @@ const services = [
       'Premium texture materials'
     ],
     price: 'Starting from ₹80/sq ft',
-    image: '/images/Banner/banner.png'
+    image: '/images/services/texture-painting.jpg'
   },
   {
     id: 'interior-design',
@@ -42,7 +42,7 @@ const services = [
       '3D visualization'
     ],
     price: 'Custom pricing based on project',
-    image: '/images/Banner/banner.png'
+    image: '/images/services/interior-design.jpg'
   },
   {
     id: 'commercial-projects',
@@ -56,7 +56,7 @@ const services = [
       'Quick turnaround times'
     ],
     price: 'Get a custom quote',
-    image: '/images/Banner/banner.png'
+    image: '/images/services/commercial-projects.jpg'
   }
 ];
 
@@ -107,15 +107,21 @@ export default function Services() {
                 
                 <Link 
                   href="/#contact" 
-                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 bg-blue text-white px-6 py-3 rounded-full font-medium transition-all hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   Get Quote
                 </Link>
               </div>
               
               <div className="flex-1">
-                <div className="bg-gray-100 rounded-lg h-96 flex items-center justify-center">
-                  <p className="text-gray-500">Service Image</p>
+                <div className="relative h-96 overflow-hidden rounded-2xl bg-lightgrey shadow-lg">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} service`}
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    sizes="(min-width: 1150px) 50vw, 100vw"
+                  />
                 </div>
               </div>
             </div>

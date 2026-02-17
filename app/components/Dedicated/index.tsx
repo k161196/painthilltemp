@@ -16,7 +16,7 @@ const Dedicated = () => {
 
                     {/* COLUMN-2 */}
                     <div className="relative">
-                        <Image src="images/dedicated/comma.svg" alt="comma-image" width={200} height={106} className="absolute comma-pos hidden lg:block" />
+                        <Image src="/images/dedicated/comma.svg" alt="comma-image" width={200} height={106} className="absolute comma-pos hidden lg:block" />
                         <h2 className="text-4xl lg:text-65xl font-bold sm:leading-tight text-center lg:text-start">Transforming Spaces with Excellence and Precision.</h2>
                         <p className="font-medium text-lightblack text-2xl mt-5 text-center lg:text-start">At Paint Hill, we believe that walls define the character of a space. Our commitment to quality craftsmanship, premium materials, and innovative designs ensures that every project we undertake reflects excellence.</p>
                         {/*<p className="text-2xl font-semibold mt-12 lg:ml-32 preline text-center lg:text-start"> Kiran Yadav, CEO</p>*/}

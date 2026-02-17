@@ -46,8 +46,8 @@ const Aboutus = () => {
         <h4 className='text-center text-4xl lg:text-65xl font-bold'>Know more about us.</h4>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-1 gap-x-8'>
           {Aboutdata.map((item, i) => (
-            <div key={i} className='hover:bg-navyblue bg-white rounded-3xl mt-16 pt-10 pl-8 pb-10 pr-6 shadow-xl group'>
-              <h4 className='text-4xl font-semibold  text-black mb-5 group-hover:text-white'>{item.heading}</h4>
+            <div key={i} className='bg-white rounded-3xl mt-16 pt-10 pl-8 pb-10 pr-6 shadow-xl border border-gray-100 group transition-all hover:-translate-y-2 hover:shadow-2xl hover:bg-navyblue'>
+              <h4 className='text-3xl font-semibold text-black mb-5 group-hover:text-white'>{item.heading}</h4>
               <Image src={item.imgSrc} alt={item.imgSrc} width={100} height={100} className="mb-5" />
               <h4 className='text-lg font-normal text-black group-hover:text-offwhite mb-5'>{item.paragraph}</h4>
               <h4 className='text-lg font-normal text-black group-hover:text-offwhite mb-5'>{item.paragraph2}</h4>

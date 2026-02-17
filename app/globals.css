@@ -267,9 +267,9 @@ html {
 }
 
 .bg-joinus {
-  background-image: url('/images/joinus/horn.svg'), url('/images/joinus/paint.svg');
-  background-repeat: no-repeat, no-repeat;
-  background-position: 84% 109%, 12% 18%;
+  background-image: url('/images/joinus/horn.svg');
+  background-repeat: no-repeat;
+  background-position: 84% 109%;
 }
 
 /* Removed old footer-icons styles - using inline SVGs now */
@@ -408,4 +408,35 @@ html {
 
 .manage > div:nth-child(2) h3 {
   color: #747474;
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.reveal-up {
+  animation: riseIn 0.7s ease both;
 }

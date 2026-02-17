@@ -14,7 +14,7 @@ const Digital = () => {
                             From consultation to completion, we deliver exceptional wall painting services with attention to detail and quality craftsmanship.
                         </p>
                         <div className="text-center lg:text-start">
-                            <button className="text-xl font-semibold text-white bg-btnblue py-4 px-12 hover:bg-hoblue rounded-full">Learn More</button>
+                            <button className="text-xl font-semibold text-white bg-btnblue py-4 px-12 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:bg-hoblue">Learn More</button>
                         </div>
                     </div>
 
@@ -22,7 +22,7 @@ const Digital = () => {
                     <div className="relative lg:absolute lg:right-0 lg:top-12">
                         <Image 
                             src="/images/digital/cleaning.svg" 
-                            className="mt-10 lg:mt-0" 
+                            className="mt-10 lg:mt-0 float-slow" 
                             alt="Professional painting service" 
                             width={600} 
                             height={500} 

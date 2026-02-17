@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const blogPosts = [
   {
@@ -8,7 +9,8 @@ const blogPosts = [
     category: "Color Trends",
     date: "January 15, 2025",
     readTime: "5 min read",
-    author: "Paint Hill Team"
+    author: "Paint Hill Team",
+    image: "/images/blog/blog-1.jpg"
   },
   {
     id: 2,
@@ -17,7 +19,8 @@ const blogPosts = [
     category: "Guide",
     date: "January 10, 2025",
     readTime: "7 min read",
-    author: "Design Expert"
+    author: "Design Expert",
+    image: "/images/blog/blog-2.jpg"
   },
   {
     id: 3,
@@ -26,7 +29,8 @@ const blogPosts = [
     category: "Tips",
     date: "January 5, 2025",
     readTime: "4 min read",
-    author: "Paint Hill Team"
+    author: "Paint Hill Team",
+    image: "/images/blog/blog-3.jpg"
   },
   {
     id: 4,
@@ -35,7 +39,8 @@ const blogPosts = [
     category: "Design Tips",
     date: "December 28, 2024",
     readTime: "6 min read",
-    author: "Interior Designer"
+    author: "Interior Designer",
+    image: "/images/blog/blog-4.jpg"
   },
   {
     id: 5,
@@ -44,7 +49,8 @@ const blogPosts = [
     category: "Color Theory",
     date: "December 20, 2024",
     readTime: "8 min read",
-    author: "Color Consultant"
+    author: "Color Consultant",
+    image: "/images/blog/blog-5.jpg"
   },
   {
     id: 6,
@@ -53,7 +59,8 @@ const blogPosts = [
     category: "Maintenance",
     date: "December 15, 2024",
     readTime: "5 min read",
-    author: "Paint Hill Team"
+    author: "Paint Hill Team",
+    image: "/images/blog/blog-6.jpg"
   }
 ];
 
@@ -97,8 +104,14 @@ export default function Blog() {
               </div>
             </div>
             <div className="flex-1">
-              <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                <p className="text-gray-500">Featured Image</p>
+              <div className="relative h-64 overflow-hidden rounded-xl shadow-lg">
+                <Image
+                  src={blogPosts[0].image}
+                  alt={blogPosts[0].title}
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(min-width: 1150px) 50vw, 100vw"
+                />
               </div>
             </div>
           </div>
@@ -107,9 +120,15 @@ export default function Blog() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.slice(1).map((post) => (
-            <article key={post.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="bg-gray-100 h-48 flex items-center justify-center">
-                <p className="text-gray-500">Blog Image</p>
+            <article key={post.id} className="group border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 1150px) 33vw, (min-width: 768px) 50vw, 100vw"
+                />
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -145,7 +164,7 @@ export default function Blog() {
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium transition-all hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl"
             >
               Subscribe
             </button>

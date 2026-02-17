@@ -52,7 +52,7 @@ const FAQ = () => {
       <h2 className='text-4xl lg:text-6xl font-semibold text-center text-white'>Frequently Asked <br /> Questions</h2>
       <div className="w-full px-4 pt-16">
         {faqData.map((faq, index) => (
-          <div key={index} className="mx-auto w-full max-w-5xl rounded-2xl bg-white py-8 px-6 mb-5">
+          <div key={index} className="mx-auto w-full max-w-5xl rounded-2xl bg-white py-8 px-6 mb-5 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-2xl">
             <Disclosure>
               {({ open }) => (
                 <>
@@ -61,7 +61,7 @@ const FAQ = () => {
                     <ChevronUpIcon
                       className={`${
                         open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-purple-500 flex-shrink-0 ml-2`}
+                      } h-5 w-5 text-blue flex-shrink-0 ml-2`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-70">
