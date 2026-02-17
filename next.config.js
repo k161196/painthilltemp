@@ -1,10 +1,7 @@
 
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-// const basePath = '/painthilltemp';
-
 const nextConfig = {
-   basePath: isProd ? '' : '',
+  trailingSlash: true,
   // assetPrefix: isProd ? basePath : '',
   output: "export",
   images: {

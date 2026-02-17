@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Partners",
+  description:
+    "Partner with Paint Hill for reliable painting and interior project execution across Mumbai & Navi Mumbai.",
+  alternates: { canonical: "/partners" },
+};
 
 const partners = [
   {

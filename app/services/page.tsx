@@ -1,5 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Wall painting, texture finishes, interior styling, and commercial painting services by Paint Hill in Mumbai & Navi Mumbai.",
+  alternates: { canonical: "/services" },
+};
 
 const services = [
   {

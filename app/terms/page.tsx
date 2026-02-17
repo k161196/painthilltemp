@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms",
+  description:
+    "Terms and conditions for Paint Hill’s painting and interior services.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsAndConditions() {
   return (
@@ -106,7 +114,7 @@ export default function TermsAndConditions() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Dispute Resolution</h2>
             <p className="text-gray-700 mb-4">
-              Any disputes arising from these terms or our services shall first be addressed through good faith negotiations. If unresolved, disputes shall be subject to the jurisdiction of courts in [Your City/State].
+              Any disputes arising from these terms or our services shall first be addressed through good faith negotiations. If unresolved, disputes shall be subject to the jurisdiction of courts in Mumbai, Maharashtra, India.
             </p>
           </section>
 

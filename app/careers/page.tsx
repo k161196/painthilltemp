@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Careers",
+  description:
+    "Join Paint Hill in Mumbai. Explore current openings and build a career in painting and interior services.",
+  alternates: { canonical: "/careers" },
+};
 
 const openPositions = [
   {

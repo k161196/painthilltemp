@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Paint Hill’s privacy policy describing what information we collect and how we use it.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPolicy() {
   return (

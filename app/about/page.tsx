@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "About Paint Hill — trusted wall painting and texture experts serving Mumbai since 1993.",
+  alternates: { canonical: "/about" },
+};
 
 const stats = [
   { value: "30+", label: "Years of Experience" },

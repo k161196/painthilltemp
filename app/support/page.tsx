@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Support",
+  description:
+    "Support center for quotes, timelines, warranties, and after-service care from Paint Hill.",
+  alternates: { canonical: "/support" },
+};
 
 const supportCategories = [
   {
@@ -105,9 +113,7 @@ export default function Support() {
                 <ul className="space-y-2">
                   {category.items.map((item, idx) => (
                     <li key={idx}>
-                      <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm">
-                        {item}
-                      </Link>
+                      <span className="text-gray-600 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
