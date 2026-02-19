@@ -101,7 +101,7 @@ export default function Gallery() {
         <div className="mt-16 text-center">
           <p className="text-gray-600 mb-6">Want to see your space transformed like these?</p>
           <Link 
-            href="/#contact" 
+            href="/contact"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             Start Your Project

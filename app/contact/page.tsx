@@ -1,8 +1,14 @@
 'use client';
 
-import Link from "next/link";
 import { useState } from "react";
 import { submitMessage } from "../utils/supabase";
+import {
+  EnvelopeIcon,
+  MapPinIcon,
+  PhoneIcon,
+  ChatBubbleLeftRightIcon,
+} from "@heroicons/react/24/outline";
+import PageHero from "../components/SitePages/PageHero";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -58,31 +64,25 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <div className="mb-8">
-          <Link 
-            href="/" 
-            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            ← Back to Home
-          </Link>
-        </div>
-        
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your space? Contact us for a free consultation and quote
-          </p>
-        </div>
+    <div className="min-h-screen">
+      <PageHero
+        eyebrow="Contact"
+        title="Talk to Paint Hill."
+        lead="Tell us what you’re painting and your timeline. We’ll reply with clear next steps — visit or call."
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Contact Form */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="ph-glass rounded-3xl p-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-950">Send a message</h2>
+            <p className="mt-2 text-sm text-slate-700">
+              Share a few details. We usually respond during business hours.
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
               <div>
-                <label htmlFor="name" className="block text-base font-medium text-gray-900 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-slate-950 mb-2">
                   Your Name *
                 </label>
                 <input
@@ -92,14 +92,15 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400 text-base"
+                  autoComplete="name"
+                  className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
                   placeholder="John Doe"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-base font-medium text-gray-900 mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-slate-950 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -109,13 +110,14 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400 text-base"
+                    autoComplete="email"
+                    className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-base font-medium text-gray-900 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-semibold text-slate-950 mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -125,14 +127,16 @@ export default function Contact() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400 text-base"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
                     placeholder="+91 98765 43210"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-base font-medium text-gray-900 mb-2">
+                <label htmlFor="service" className="block text-sm font-semibold text-slate-950 mb-2">
                   Service Interested In
                 </label>
                 <select
@@ -140,10 +144,10 @@ export default function Contact() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400 text-base appearance-none bg-white"
+                  className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
                 >
                   <option value="">Select a service</option>
-                  <option value="rental">Rental Painting</option>
+                  <option value="rental">Wall Painting</option>
                   <option value="texture">Texture Painting</option>
                   <option value="interior">Interior Design</option>
                   <option value="commercial">Commercial Project</option>
@@ -152,7 +156,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-base font-medium text-gray-900 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-slate-950 mb-2">
                   Message
                 </label>
                 <textarea
@@ -161,7 +165,7 @@ export default function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400 text-base resize-none"
+                  className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)] resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
@@ -169,116 +173,110 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg font-medium transition-colors mt-2 ${
-                  isSubmitting 
-                    ? 'bg-gray-400 text-white cursor-not-allowed' 
-                    : 'bg-black text-white hover:bg-gray-800'
+                className={`w-full py-3 px-6 rounded-2xl font-semibold transition-colors mt-2 ${
+                  isSubmitting
+                    ? 'bg-slate-400 text-white cursor-not-allowed'
+                    : 'bg-[var(--ph-accent)] text-white hover:opacity-95'
                 }`}
               >
                 {isSubmitting ? 'Sending...' : 'Submit'}
               </button>
 
-              {submitStatus === 'success' && (
-                <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-800 text-center">Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.</p>
-                </div>
-              )}
+              <div aria-live="polite" className="pt-2">
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
+                    <p className="text-emerald-900 text-center text-sm font-semibold">
+                      Message sent. We&apos;ll get back to you soon.
+                    </p>
+                  </div>
+                )}
 
-              {submitStatus === 'error' && (
-                <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-800 text-center">Sorry, there was an error sending your message. Please try again.</p>
-                </div>
-              )}
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl">
+                    <p className="text-rose-900 text-center text-sm font-semibold">
+                      Something went wrong. Please try again.
+                    </p>
+                  </div>
+                )}
+              </div>
             </form>
           </div>
 
           {/* Contact Information */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
-            
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+          <div className="space-y-6">
+            <div className="ph-glass rounded-3xl p-8">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
+                Contact info
+              </h2>
+              <div className="mt-6 space-y-5">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-10 w-10 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                    <MapPinIcon className="h-5 w-5 text-[var(--ph-primary)]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950">Office</p>
+                    <p className="mt-1 text-sm text-slate-700 leading-relaxed">
+                      Kalina, Santacruz East<br />
+                      Mumbai 400029<br />
+                      Maharashtra, India
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Office Address</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Kalina, Santacruz East<br />
-                    Mumbai 400029<br />
-                    Maharashtra, India
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-10 w-10 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                    <PhoneIcon className="h-5 w-5 text-[var(--ph-primary)]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950">Phone</p>
+                    <a href="tel:+918767520926" className="mt-1 inline-block text-sm text-slate-700 hover:text-slate-950">
+                      +91 8767520926
+                    </a>
+                    <p className="mt-1 text-xs text-slate-600">Mon–Sat: 9:00 AM – 7:00 PM</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-                  <p className="text-gray-700">
-                    <a href="tel:+918767520926" className="hover:text-gray-900">+91 8767520926</a>
-                  </p>
-                  <p className="text-gray-600 text-sm mt-1">Mon-Sat: 9:00 AM - 7:00 PM</p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-10 w-10 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                    <EnvelopeIcon className="h-5 w-5 text-[var(--ph-primary)]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950">Email</p>
+                    <a href="mailto:support@painthill.in" className="mt-1 inline-block text-sm text-slate-700 hover:text-slate-950">
+                      support@painthill.in
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                  <p className="text-gray-700">
-                    <a href="mailto:support@painthill.in" className="hover:text-gray-900">support@painthill.in</a>
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">WhatsApp</h3>
-                  <p className="text-gray-700">
-                    <a href="https://wa.me/918767520926" className="hover:text-gray-900">+91 8767520926</a>
-                  </p>
-                  <p className="text-gray-600 text-sm mt-1">Quick responses during business hours</p>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-10 w-10 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                    <ChatBubbleLeftRightIcon className="h-5 w-5 text-[var(--ph-primary)]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950">WhatsApp</p>
+                    <a href="https://wa.me/918767520926" className="mt-1 inline-block text-sm text-slate-700 hover:text-slate-950">
+                      +91 8767520926
+                    </a>
+                    <p className="mt-1 text-xs text-slate-600">Quick replies during business hours</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center">
-              <p className="text-gray-500">Map Location</p>
-            </div>
-
-            {/* Business Hours */}
-            <div className="mt-8 bg-gray-50 rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Business Hours</h3>
-              <div className="space-y-2 text-gray-600">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 7:00 PM</span>
+            <div className="rounded-3xl border border-black/10 bg-white/70 p-8">
+              <h3 className="text-base font-semibold text-slate-950">Business hours</h3>
+              <div className="mt-4 space-y-2 text-sm text-slate-700">
+                <div className="flex justify-between gap-6">
+                  <span>Monday – Friday</span>
+                  <span className="font-semibold text-slate-900">9:00 AM – 7:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-6">
                   <span>Saturday</span>
-                  <span>9:00 AM - 6:00 PM</span>
+                  <span className="font-semibold text-slate-900">9:00 AM – 6:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-6">
                   <span>Sunday</span>
-                  <span>Closed</span>
+                  <span className="font-semibold text-slate-900">Closed</span>
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ const Aboutdata: datatype[] = [
         imgSrc: "/images/aboutus/imgOne.svg",
         paragraph: `"Bringing Walls to Life with Colors & Creativity!"`,
     paragraph2: `"At Paint Hill, we specialize in transforming dull walls into artistic masterpieces. Our team of skilled painters and designers ensures that every stroke adds beauty, elegance, and uniqueness to your space. Whether it’s your home or office, we believe walls should inspire and tell a story.`,
-    points: [`🔹 Experienced professionals`, `🔹 High-quality, durable paints`, `🔹 Personalized designs`],
+    points: [`Experienced professionals`, `High-quality, durable paints`, `Personalized designs`],
     link: 'Learn more'
     },
     {
@@ -23,7 +23,7 @@ const Aboutdata: datatype[] = [
         imgSrc: "/images/aboutus/imgTwo.svg",
         paragraph: '"Expert Wall Painting Solutions for Every Space!"',
     paragraph2:'We offer a range of wall painting services tailored to your needs:',
-    points:['🎨 Custom Wall Art – Murals, textures, and unique hand-painted designs.','🏠 Residential Painting – Freshen up your home with vibrant, long-lasting colors.','🏢 Commercial Painting – Stylish walls for offices, restaurants, and retail spaces.','✨ Texture & Stencil Painting – Modern and trendy patterns to elevate your interiors.'],
+    points:['Custom Wall Art – Murals, textures, and unique hand-painted designs.','Residential Painting – Freshen up your home with vibrant, long-lasting colors.','Commercial Painting – Stylish walls for offices, restaurants, and retail spaces.','Texture & Stencil Painting – Modern patterns to elevate your interiors.'],
         link: 'Learn more'
     },
     {
@@ -31,7 +31,7 @@ const Aboutdata: datatype[] = [
         imgSrc: "/images/aboutus/imgThree.svg",
         paragraph: '"See Our Stunning Transformations!"',
     paragraph2:'A picture is worth a thousand words! Check out our portfolio of beautifully painted walls that have redefined interiors. We take pride in our:',
-    points:['✅ Unique customized designs','✅ High-end wall textures and murals','✅ Before & after transformations'],
+    points:['Unique customized designs','High-end wall textures and murals','Before & after transformations'],
         link: 'Learn more'
     },
 ]

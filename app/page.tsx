@@ -1,21 +1,19 @@
-import Banner from './components/Banner/index';
-import Aboutus from './components/Aboutus/index';
-import Dedicated from './components/Dedicated/index';
-import Digital from './components/Digital/index';
-import Beliefs from './components/Beliefs/index';
-import Ourteam from './components/Ourteam/index';
-import FAQ from './components/FAQ/index';
+import Hero from "./components/LandingV2/Hero";
+import Services from "./components/LandingV2/Services";
+import Process from "./components/LandingV2/Process";
+import Gallery from "./components/LandingV2/Gallery";
+import FAQ from "./components/LandingV2/FAQ";
+import CTA from "./components/LandingV2/CTA";
 
 
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      <Banner />
-      <Aboutus />
-      <Digital />
-      <Beliefs />
-      <Ourteam />
-      <Dedicated />
+      <Hero />
+      <Services />
+      <Process />
+      <Gallery />
+      <CTA />
       <FAQ />
     </main>
   )

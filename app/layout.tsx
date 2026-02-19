@@ -27,7 +27,11 @@ export const metadata: Metadata = {
       "Premium wall painting, texture work, and interior styling across Mumbai & Navi Mumbai. Get a free quote.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    shortcut: ["/favicon.ico"],
   },
 };
 

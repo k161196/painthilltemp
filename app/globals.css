@@ -1,14 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap');
 /* TAILWIND CSS LINKS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ph-primary: #0ea5e9;
+  --ph-secondary: #38bdf8;
+  --ph-accent: #f97316;
+  --ph-bg: #f0f9ff;
+  --ph-text: #0c4a6e;
+  --ph-surface: rgba(255, 255, 255, 0.85);
+  --ph-border: rgba(15, 23, 42, 0.10);
+  --ph-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+}
+
 body {
   margin: 0;
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Work Sans', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--ph-bg);
+  color: var(--ph-text);
   overflow-x: hidden;
+}
+
+/* Headings: Outfit (CSS import above). */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Better focus defaults (tailwind still applies on components). */
+:focus-visible {
+  outline: 2px solid rgba(14, 165, 233, 0.55);
+  outline-offset: 2px;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -49,6 +75,21 @@ html:not([data-scroll="0"]) .border-right {
 html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
+}
+
+.ph-hero-bg {
+  background:
+    radial-gradient(1000px 600px at 15% 15%, rgba(56, 189, 248, 0.22), transparent 60%),
+    radial-gradient(900px 500px at 75% 20%, rgba(249, 115, 22, 0.16), transparent 60%),
+    radial-gradient(800px 500px at 60% 85%, rgba(14, 165, 233, 0.16), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, var(--ph-bg) 100%);
+}
+
+.ph-glass {
+  background: var(--ph-surface);
+  border: 1px solid var(--ph-border);
+  box-shadow: var(--ph-shadow);
+  backdrop-filter: blur(10px);
 }
 
 .navbar {

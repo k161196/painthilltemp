@@ -84,7 +84,7 @@ const Banner = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(true)}
-                  className='relative z-30 inline-flex items-center justify-center text-sm md:text-lg font-semibold bg-white text-blue py-3 px-8 md:py-4 md:px-10 rounded-full hover:bg-lightgrey transition-all hover:-translate-y-0.5 hover:shadow-2xl cursor-pointer pointer-events-auto'
+                  className='relative z-30 inline-flex items-center justify-center text-sm md:text-lg font-semibold bg-[var(--ph-accent)] text-white py-3 px-8 md:py-4 md:px-10 rounded-full hover:opacity-95 transition-all hover:-translate-y-0.5 hover:shadow-2xl cursor-pointer pointer-events-auto'
                 >
                   Get a Free Quote
                 </button>

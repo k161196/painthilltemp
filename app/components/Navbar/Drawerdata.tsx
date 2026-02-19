@@ -46,9 +46,9 @@ const Data: React.FC<DataProps> = ({ onQuoteClick }) => {
                         <div className="mt-4"></div>
                         <button 
                             onClick={onQuoteClick}
-                            className="bg-blue w-full hover:bg-btnblue text-white font-medium py-2 px-4 rounded mb-2"
+                            className="w-full rounded-full bg-[var(--ph-accent)] px-5 py-3 text-sm font-semibold text-white hover:opacity-95 transition-colors"
                         >
-                            Get A Free Quote
+                            Get a free quote
                         </button>
                         <button className="bg-navyblue w-full hover:text-white text-white border border-purple font-medium py-2 px-4 rounded">
                             Contact Us

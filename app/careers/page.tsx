@@ -1,5 +1,16 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  BriefcaseIcon,
+  AcademicCapIcon,
+  HeartIcon,
+  ScaleIcon,
+  ArrowTrendingUpIcon,
+  UserGroupIcon,
+  CheckIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
+import PageHero from "../components/SitePages/PageHero";
+import Section from "../components/SitePages/Section";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -60,171 +71,155 @@ const benefits = [
   {
     title: "Competitive Salary",
     description: "Industry-leading compensation packages",
-    icon: "💰"
+    icon: BriefcaseIcon
   },
   {
     title: "Health Insurance",
     description: "Comprehensive health coverage for you and family",
-    icon: "🏥"
+    icon: HeartIcon
   },
   {
     title: "Training & Development",
     description: "Regular skill enhancement programs",
-    icon: "📚"
+    icon: AcademicCapIcon
   },
   {
     title: "Work-Life Balance",
     description: "Flexible schedules and paid time off",
-    icon: "⚖️"
+    icon: ScaleIcon
   },
   {
     title: "Career Growth",
     description: "Clear path for advancement",
-    icon: "📈"
+    icon: ArrowTrendingUpIcon
   },
   {
     title: "Team Culture",
     description: "Supportive and inclusive work environment",
-    icon: "🤝"
+    icon: UserGroupIcon
   }
 ];
 
 export default function Careers() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <div className="mb-8">
-          <Link 
-            href="/" 
-            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            ← Back to Home
-          </Link>
-        </div>
-        
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Join the Paint Hill Family</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Build a colorful career with Mumbai&apos;s leading painting service company
-          </p>
-        </div>
+    <div className="min-h-screen">
+      <PageHero
+        eyebrow="Careers"
+        title="Join a team that sweats the details."
+        lead="From surface prep to final polish — we take pride in doing it right. If you’re serious about craft and clean execution, you’ll fit in."
+      />
 
-        {/* Why Join Us Section */}
-        <div className="mb-16">
-          <div className="bg-blue-50 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Why Work at Paint Hill?</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              <div>
-                <p className="text-gray-700 mb-4">
-                  At Paint Hill, we believe our employees are our greatest asset. We&apos;ve built a culture 
-                  that values creativity, craftsmanship, and customer satisfaction. When you join our team, 
-                  you&apos;re not just getting a job – you&apos;re becoming part of a family that&apos;s passionate about 
-                  transforming spaces and lives.
-                </p>
-                <p className="text-gray-700">
-                  We offer opportunities for growth, continuous learning, and the chance to work on exciting 
-                  projects across Mumbai. Whether you&apos;re an experienced professional or just starting your 
-                  career, Paint Hill provides the platform to showcase your skills and grow.
-                </p>
+      <Section title="Why Paint Hill" desc="A steady pipeline of work, a clear standard, and space to grow.">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="ph-glass rounded-3xl p-8">
+            <p className="text-slate-700">
+              At Paint Hill, we value craftsmanship, ownership, and respect for the customer’s home.
+              You won’t be rushed into sloppy work — we optimize for quality that lasts.
+            </p>
+            <p className="mt-4 text-slate-700">
+              Whether you’re experienced in texture and decorative finishes or you’re growing your skills,
+              you’ll learn modern techniques and work with a team that has your back.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-black/10 bg-white/70 p-8">
+            <p className="text-base font-semibold text-slate-950">What we offer</p>
+            <ul className="mt-4 space-y-3 text-sm text-slate-700">
+              {[
+                "Stable work with a growing company",
+                "Diverse projects across Mumbai & Navi Mumbai",
+                "Supportive team environment",
+                "Recognition for high-quality execution",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="mt-0.5 h-5 w-5 rounded-full bg-emerald-500/15 flex items-center justify-center">
+                    <CheckIcon className="h-4 w-4 text-emerald-700" />
+                  </span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Benefits" desc="Designed for longevity — not burnout.">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((b) => (
+            <div key={b.title} className="ph-glass rounded-3xl p-7">
+              <div className="h-11 w-11 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                <b.icon className="h-6 w-6 text-[var(--ph-primary)]" />
               </div>
-              <div className="bg-white rounded-lg p-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">What We Offer</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Stable employment with a growing company</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Opportunities to work on diverse projects</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Supportive team environment</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Recognition and rewards for excellence</span>
-                  </li>
-                </ul>
+              <h3 className="mt-5 text-lg font-semibold text-slate-950">{b.title}</h3>
+              <p className="mt-2 text-sm text-slate-700">{b.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Open roles" desc="See something that fits? Apply via call — we’ll guide next steps.">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {openPositions.map((p) => (
+            <div key={p.id} className="ph-glass rounded-3xl p-8">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-lg font-semibold text-slate-950">{p.title}</p>
+                  <p className="mt-1 text-sm text-slate-700">{p.description}</p>
+                </div>
+                <span className="shrink-0 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700">
+                  {p.type}
+                </span>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2 text-xs">
+                {[
+                  { k: "Dept", v: p.department },
+                  { k: "Location", v: p.location },
+                  { k: "Exp", v: p.experience },
+                ].map((x) => (
+                  <span
+                    key={`${p.id}-${x.k}`}
+                    className="rounded-full bg-slate-950/5 border border-black/5 px-3 py-1 font-semibold text-slate-700"
+                  >
+                    {x.k}: {x.v}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6">
+                <a
+                  href="tel:+918767520926"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--ph-accent)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-95"
+                >
+                  <PhoneIcon className="h-4 w-4" />
+                  Apply via call
+                </a>
               </div>
             </div>
-          </div>
+          ))}
         </div>
+      </Section>
 
-        {/* Benefits Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Employee Benefits</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
-              </div>
-            ))}
+      <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div className="ph-glass rounded-3xl p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div>
+            <p className="text-xs tracking-[0.18em] uppercase text-slate-600">Apply</p>
+            <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-950">
+              Send your resume. We’ll call when there’s a fit.
+            </h2>
+            <p className="mt-3 text-base text-slate-700 max-w-2xl">
+              Even if openings aren’t listed, we’re always looking for strong painters, supervisors, and project leads.
+            </p>
           </div>
-        </div>
-
-        {/* Open Positions - Hidden for now */}
-        {/* <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Current Openings</h2>
-          <div className="space-y-6">
-            {openPositions.map((position) => (
-              <div key={position.id} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{position.title}</h3>
-                    <p className="text-gray-600 mb-3">{position.description}</p>
-                    <div className="flex flex-wrap gap-4 text-sm">
-                      <span className="text-gray-500">
-                        <strong>Department:</strong> {position.department}
-                      </span>
-                      <span className="text-gray-500">
-                        <strong>Location:</strong> {position.location}
-                      </span>
-                      <span className="text-gray-500">
-                        <strong>Type:</strong> {position.type}
-                      </span>
-                      <span className="text-gray-500">
-                        <strong>Experience:</strong> {position.experience}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                      Apply Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div> */}
-
-        {/* Application CTA */}
-        <div className="border border-gray-300 rounded-lg p-12 text-center bg-white">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">Join Our Team</h3>
-          <p className="text-gray-700 mb-8 max-w-2xl mx-auto text-base">
-            We&apos;re always looking for talented individuals. Send us your resume and we&apos;ll keep you in mind for future opportunities.
-          </p>
-          <a 
-            href="tel:+918767520926" 
-            className="inline-block bg-white text-gray-900 border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+          <a
+            href="tel:+918767520926"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-black/15 bg-white/70 px-7 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
           >
-            Call HR Team
+            <PhoneIcon className="h-4 w-4" />
+            Call HR
           </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

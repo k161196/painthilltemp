@@ -90,7 +90,13 @@ export default function Services() {
 
         <div className="space-y-24">
           {services.map((service, index) => (
-            <div key={service.id} className={`flex flex-col lg:flex-row gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+            <div
+              key={service.id}
+              id={service.id}
+              className={`scroll-mt-24 flex flex-col lg:flex-row gap-12 items-center ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
+            >
               <div className="flex-1">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">{service.title}</h2>
                 <p className="text-gray-600 mb-6">{service.description}</p>
@@ -114,7 +120,7 @@ export default function Services() {
                 </div>
                 
                 <Link 
-                  href="/#contact" 
+                  href="/contact"
                   className="inline-flex items-center gap-2 bg-blue text-white px-6 py-3 rounded-full font-medium transition-all hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   Get Quote

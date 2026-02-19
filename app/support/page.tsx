@@ -1,5 +1,16 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  WrenchScrewdriverIcon,
+  PaintBrushIcon,
+  ClipboardDocumentCheckIcon,
+  RocketLaunchIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  ChatBubbleLeftRightIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/outline";
+import PageHero from "../components/SitePages/PageHero";
+import Section from "../components/SitePages/Section";
 
 export const metadata: Metadata = {
   title: "Support",
@@ -11,7 +22,7 @@ export const metadata: Metadata = {
 const supportCategories = [
   {
     title: "Getting Started",
-    icon: "🚀",
+    icon: RocketLaunchIcon,
     items: [
       "How to request a quote",
       "Understanding our pricing",
@@ -21,7 +32,7 @@ const supportCategories = [
   },
   {
     title: "Service Information",
-    icon: "🎨",
+    icon: PaintBrushIcon,
     items: [
       "Types of painting services",
       "Texture painting options",
@@ -31,7 +42,7 @@ const supportCategories = [
   },
   {
     title: "Project Management",
-    icon: "📋",
+    icon: ClipboardDocumentCheckIcon,
     items: [
       "Project timeline expectations",
       "Payment terms and options",
@@ -41,7 +52,7 @@ const supportCategories = [
   },
   {
     title: "Troubleshooting",
-    icon: "🔧",
+    icon: WrenchScrewdriverIcon,
     items: [
       "Common paint issues",
       "Maintenance guidelines",
@@ -57,103 +68,107 @@ const contactMethods = [
     description: "Talk to our experts",
     detail: "+91 8767520926",
     availability: "Mon-Sat: 9:00 AM - 7:00 PM",
-    icon: "📞"
+    href: "tel:+918767520926",
+    icon: PhoneIcon,
   },
   {
     title: "Email Support",
     description: "Get detailed assistance",
     detail: "support@painthill.in",
     availability: "24-48 hour response time",
-    icon: "✉️"
+    href: "mailto:support@painthill.in",
+    icon: EnvelopeIcon,
   },
   {
     title: "WhatsApp",
     description: "Quick questions & updates",
     detail: "+91 8767520926",
     availability: "Mon-Sat: 9:00 AM - 7:00 PM",
-    icon: "💬"
+    href: "https://wa.me/918767520926",
+    icon: ChatBubbleLeftRightIcon,
   },
   {
     title: "Visit Our Office",
     description: "Meet us in person",
     detail: "Kalina, Santacruz East, Mumbai 400029",
     availability: "Mon-Sat: 10:00 AM - 6:00 PM",
-    icon: "🏢"
+    href: "/contact",
+    icon: MapPinIcon,
   }
 ];
 
 export default function Support() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <div className="mb-8">
-          <Link 
-            href="/" 
-            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            ← Back to Home
-          </Link>
-        </div>
-        
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Support Center</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We&apos;re here to help you with all your painting and interior design needs
-          </p>
-        </div>
+    <div className="min-h-screen">
+      <PageHero
+        eyebrow="Support"
+        title="Quick help. Clear answers."
+        lead="Need a quote, a timeline, warranty help, or after-service care? Start here — and contact us if you want a human."
+      />
 
-        {/* Quick Help Section */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">How can we help you?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {supportCategories.map((category, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{category.title}</h3>
-                <ul className="space-y-2">
-                  {category.items.map((item, idx) => (
-                    <li key={idx}>
-                      <span className="text-gray-600 text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+      <Section title="How can we help?" desc="Pick a topic. If something feels unclear, message us — we’ll guide you.">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {supportCategories.map((c) => (
+            <div key={c.title} className="ph-glass rounded-3xl p-7">
+              <div className="h-11 w-11 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                <c.icon className="h-6 w-6 text-[var(--ph-primary)]" />
               </div>
-            ))}
-          </div>
+              <h3 className="mt-5 text-lg font-semibold text-slate-950">{c.title}</h3>
+              <ul className="mt-4 space-y-2">
+                {c.items.map((item) => (
+                  <li key={item} className="text-sm text-slate-700">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
+      </Section>
 
-        {/* Contact Methods */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Contact Our Support Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {contactMethods.map((method, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">{method.icon}</div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{method.title}</h3>
-                    <p className="text-gray-600 text-sm mb-2">{method.description}</p>
-                    <p className="text-blue-600 font-medium mb-1">{method.detail}</p>
-                    <p className="text-gray-500 text-sm">{method.availability}</p>
-                  </div>
+      <Section title="Contact support" desc="Fastest routes to reach us.">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {contactMethods.map((m) => (
+            <a
+              key={m.title}
+              href={m.href}
+              className="ph-glass rounded-3xl p-7 transition-transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              <div className="flex items-start gap-4">
+                <div className="h-11 w-11 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
+                  <m.icon className="h-6 w-6 text-[var(--ph-primary)]" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-slate-950">{m.title}</h3>
+                  <p className="mt-1 text-sm text-slate-700">{m.description}</p>
+                  <p className="mt-3 text-sm font-semibold text-slate-950">{m.detail}</p>
+                  <p className="mt-1 text-xs text-slate-600">{m.availability}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </a>
+          ))}
         </div>
+      </Section>
 
-        {/* FAQ Link */}
-        <div className="bg-blue-50 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
-          <p className="text-gray-600 mb-6">Check out our frequently asked questions for quick answers</p>
-          <Link 
-            href="/#faq-section" 
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+      <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div className="ph-glass rounded-3xl p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div>
+            <p className="text-xs tracking-[0.18em] uppercase text-slate-600">FAQ</p>
+            <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-950">
+              Still have questions?
+            </h2>
+            <p className="mt-3 text-base text-slate-700 max-w-2xl">
+              Our FAQ covers timelines, pricing ranges, warranties, and prep.
+            </p>
+          </div>
+          <a
+            href="/#faq-section"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--ph-accent)] px-7 py-3 text-sm font-semibold text-white hover:opacity-95"
           >
             View FAQ
-          </Link>
+          </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

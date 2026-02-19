@@ -24,7 +24,7 @@ const footerSections: FooterSection[] = [
         title: "Resources",
         links: [
             { name: 'Gallery', href: '/gallery' },
-            { name: 'Testimonials', href: '/#testimonials' },
+            { name: 'Testimonials', href: '/testimonials' },
             { name: 'Blog', href: '/blog' },
             { name: 'Support', href: '/support' }
         ]
@@ -42,6 +42,7 @@ const footerSections: FooterSection[] = [
 ]
 
 const footer = () => {
+    const year = new Date().getFullYear();
     return (
         <footer className="bg-gray-50 border-t border-gray-200">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -104,7 +105,7 @@ const footer = () => {
                 <div className="border-t border-gray-200 py-6">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-sm text-gray-600">
-                            © 2025 Paint Hill. All rights reserved.
+                            © {year} Paint Hill. All rights reserved.
                         </p>
                         <div className="flex space-x-6">
                             <Link href="/privacy" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
