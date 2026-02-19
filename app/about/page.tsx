@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import {
   CheckBadgeIcon,
@@ -9,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
+import QuoteCtaButton from "../components/QuoteCtaButton";
 
 export const metadata: Metadata = {
   title: "About",
@@ -158,12 +158,10 @@ export default function About() {
               Tell us what you’re painting and your timeline. We’ll recommend a finish and share a clear quote.
             </p>
           </div>
-          <Link
-            href="/contact"
+          <QuoteCtaButton
+            label="Get a free quote"
             className="inline-flex items-center justify-center rounded-full bg-[var(--ph-accent)] px-7 py-3 text-sm font-semibold text-white hover:opacity-95"
-          >
-            Get a free quote
-          </Link>
+          />
         </div>
       </section>
     </div>

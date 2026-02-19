@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { StarIcon } from "@heroicons/react/20/solid";
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
+import QuoteCtaButton from "../components/QuoteCtaButton";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -126,12 +126,10 @@ export default function TestimonialsPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-            <Link
-              href="/contact"
+            <QuoteCtaButton
+              label="Get a quote"
               className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-[var(--ph-accent)] px-7 py-3 text-sm font-semibold text-white hover:opacity-95"
-            >
-              Get a quote
-            </Link>
+            />
             <a
               href="tel:+918767520926"
               className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-black/15 bg-white/70 px-7 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
@@ -144,4 +142,3 @@ export default function TestimonialsPage() {
     </div>
   );
 }
-

@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
-import Contactusform from './Contactus';
 import GetQuoteModal from '../GetQuoteModal';
 
 interface NavigationItem {
@@ -106,7 +105,7 @@ const Navbar = () => {
                             <Drawerdata onQuoteClick={() => {
                                 setIsOpen(false);
                                 setIsQuoteModalOpen(true);
-                            }} />
+                            }} onNavigate={() => setIsOpen(false)} />
                         </Drawer>
 
                     </div>

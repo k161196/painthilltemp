@@ -1,19 +1,16 @@
 import React from "react";
 import Link from "next/link";
-import Contactusform from "./Contactus";
 
 interface NavigationItem {
     name: string;
     href: string;
-    current: boolean;
 }
 
 const navigation: NavigationItem[] = [
-    { name: 'About Us', href: '#aboutus-section', current: true },
-    { name: 'Services', href: '#services-section', current: false },
-    { name: 'FAQ', href: '#faq-section', current: false },
-    { name: 'Blog', href: '#blog-section', current: false },
-    { name: 'Testimonial', href: '#testimonial-section', current: false },
+    { name: 'Services', href: '/services' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
 ]
 
 function classNames(...classes: string[]) {
@@ -22,38 +19,44 @@ function classNames(...classes: string[]) {
 
 interface DataProps {
     onQuoteClick?: () => void;
+    onNavigate?: () => void;
 }
 
-const Data: React.FC<DataProps> = ({ onQuoteClick }) => {
+const Data: React.FC<DataProps> = ({ onQuoteClick, onNavigate }) => {
     return (
-        <div className="rounded-md max-w-sm w-full mx-auto">
-            <div className="flex-1 space-y-4 py-1">
+        <div className="w-full max-w-sm">
+            <div className="flex-1 space-y-4">
                 <div className="sm:block">
-                    <div className="space-y-1 px-5 pt-2 pb-3">
+                    <div className="space-y-2">
+                        <p className="px-1 text-xs uppercase tracking-[0.18em] text-slate-600">
+                            Menu
+                        </p>
                         {navigation.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
+                                onClick={onNavigate}
                                 className={classNames(
-                                    item.current ? 'bg-gray-900 text-purple' : 'text-black hover:bg-gray-700 hover:text-purple',
-                                    'block  py-2 rounded-md text-base font-medium'
+                                    'block min-h-[44px] rounded-xl px-4 py-3 text-base font-semibold text-slate-900 transition-colors hover:bg-slate-100'
                                 )}
-                                aria-current={item.current ? 'page' : undefined}
                             >
                                 {item.name}
                             </Link>
                         ))}
-                        <div className="mt-4"></div>
-                        <button 
+                        <div className="mt-6" />
+                        <button
                             onClick={onQuoteClick}
-                            className="w-full rounded-full bg-[var(--ph-accent)] px-5 py-3 text-sm font-semibold text-white hover:opacity-95 transition-colors"
+                            className="w-full cursor-pointer rounded-full bg-[var(--ph-accent)] px-5 py-3.5 text-base font-semibold text-white transition-all hover:opacity-95 active:scale-[0.99]"
                         >
                             Get a free quote
                         </button>
-                        <button className="bg-navyblue w-full hover:text-white text-white border border-purple font-medium py-2 px-4 rounded">
+                        <Link
+                            href="/contact"
+                            onClick={onNavigate}
+                            className="mt-3 block w-full rounded-full border border-black/15 bg-white/70 px-4 py-3.5 text-center text-base font-semibold text-slate-900 transition-colors hover:bg-white"
+                        >
                             Contact Us
-                        </button>
-                        {/* <Contactusform /> */}
+                        </Link>
                     </div>
                 </div>
             </div>
