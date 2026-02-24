@@ -56,16 +56,9 @@ html:not([data-scroll="0"]) .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: white !important;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-  transition: 0.4s linear;
-  padding: 0px !important;
-  /* height: 20px; */
-  z-index: 50;
-}
-
-html:not([data-scroll="0"]) .navbar>div>div {
-  height: 3rem;
+  background: transparent;
+  transition: 0.2s ease-out;
+  z-index: 60;
 }
 
 html:not([data-scroll="0"]) .border-right {
@@ -94,8 +87,8 @@ html {
 
 .navbar {
   position: relative;
-  background-color: white;
-  border-bottom: 0.5px solid rgba(196, 196, 196, 0.75);
+  background: transparent;
+  border-bottom: 0;
   z-index: 40;
   isolation: isolate;
 }

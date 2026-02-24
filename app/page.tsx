@@ -5,7 +5,6 @@ import Gallery from "./components/LandingV2/Gallery";
 import FAQ from "./components/LandingV2/FAQ";
 import CTA from "./components/LandingV2/CTA";
 
-
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
@@ -16,5 +15,5 @@ export default function Home() {
       <CTA />
       <FAQ />
     </main>
-  )
+  );
 }

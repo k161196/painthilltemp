@@ -217,7 +217,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/60" />
+          <div className="fixed inset-0 bg-slate-950/70 backdrop-blur-[2px]" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -231,9 +231,9 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-3 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-black/10 overflow-hidden">
+              <Dialog.Panel className="w-full overflow-hidden rounded-t-3xl border border-black/10 bg-white shadow-[0_30px_80px_rgba(2,6,23,0.24)] sm:max-w-lg sm:rounded-3xl">
                 {/* Header */}
-                <div className="px-5 pt-5 pb-4 border-b border-black/5 bg-white/80 backdrop-blur">
+                <div className="border-b border-black/5 bg-[#F8F4EE] px-5 pb-4 pt-5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
@@ -241,7 +241,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                           <button
                             type="button"
                             onClick={handleBack}
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white hover:bg-slate-50"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white transition-colors duration-200 hover:bg-slate-50"
                             aria-label="Back"
                           >
                             <ChevronLeftIcon className="h-5 w-5 text-slate-900" />
@@ -265,7 +265,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                               <div
                                 key={idx}
                                 className={`h-1.5 flex-1 rounded-full ${
-                                  active ? "bg-[var(--ph-primary)]" : "bg-slate-200"
+                                  active ? "bg-[var(--ph-primary)]" : "bg-slate-300/80"
                                 }`}
                               />
                             );
@@ -277,7 +277,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={onClose}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white hover:bg-slate-50"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white transition-colors duration-200 hover:bg-slate-50"
                       aria-label="Close"
                     >
                       <XMarkIcon className="h-5 w-5 text-slate-900" />
@@ -286,10 +286,10 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Content */}
-                <div className="px-5 py-6 max-h-[70vh] overflow-y-auto">
+                <div className="max-h-[70vh] overflow-y-auto px-5 py-6">
                   {submittedQuoteId ? (
                     <div className="text-center">
-                      <div className="mx-auto h-14 w-14 rounded-3xl bg-emerald-500/12 flex items-center justify-center">
+                      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-500/12">
                         <CheckCircleIcon className="h-8 w-8 text-emerald-700" />
                       </div>
                       <h3 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">
@@ -305,7 +305,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                       <div className="mt-6 grid grid-cols-1 gap-3">
                         <a
                           href="tel:+918767520926"
-                          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/15 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
+                          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/15 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors duration-200 hover:bg-slate-50"
                         >
                           <PhoneIcon className="h-4 w-4" />
                           Call support
@@ -313,7 +313,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                         <button
                           type="button"
                           onClick={onClose}
-                          className="inline-flex items-center justify-center rounded-2xl bg-[var(--ph-accent)] px-6 py-3 text-sm font-semibold text-white hover:opacity-95"
+                          className="inline-flex items-center justify-center rounded-2xl bg-[var(--ph-accent)] px-6 py-3 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-95"
                         >
                           Done
                         </button>
@@ -322,7 +322,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                   ) : (
                     <>
                       {submitError ? (
-                        <div className="mb-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3">
+                        <div aria-live="polite" className="mb-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3">
                           <p className="text-sm font-semibold text-rose-900">{submitError}</p>
                         </div>
                       ) : null}
@@ -338,7 +338,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                               key={service.id}
                               type="button"
                               onClick={() => handleServiceSelect(service.id)}
-                              className="w-full text-left ph-glass rounded-2xl p-4 transition-transform hover:-translate-y-0.5 cursor-pointer"
+                              className="w-full cursor-pointer rounded-2xl border border-black/10 bg-white/90 p-4 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(2,6,23,0.08)]"
                             >
                               <div className="flex items-center gap-4">
                                 <div className="h-11 w-11 rounded-2xl bg-[var(--ph-primary)]/12 flex items-center justify-center">
@@ -369,7 +369,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                               name="homeType"
                               value={formData.homeType}
                               onChange={handleInputChange}
-                              className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
+                              className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-base text-slate-950 focus:border-[var(--ph-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30"
                               autoFocus
                             >
                               <option value="">Select property type</option>
@@ -394,7 +394,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                 value={formData.numberOfWalls}
                                 onChange={handleInputChange}
                                 placeholder="e.g. 4"
-                                className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
+                                className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-400 focus:border-[var(--ph-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30"
                               />
                             </div>
                             <div>
@@ -408,7 +408,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                 value={formData.area}
                                 onChange={handleInputChange}
                                 placeholder="e.g. 1200"
-                                className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
+                                className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-400 focus:border-[var(--ph-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30"
                               />
                             </div>
                           </div>
@@ -424,7 +424,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                 className={`py-3 px-4 rounded-2xl border font-semibold transition-colors ${
                                   formData.paintType === 'new'
                                     ? 'border-[var(--ph-primary)] bg-[var(--ph-primary)] text-white'
-                                    : 'border-black/10 bg-white/70 text-slate-900 hover:bg-white'
+                                    : 'border-black/10 bg-white text-slate-900 hover:bg-slate-50'
                                 }`}
                               >
                                 New paint
@@ -435,7 +435,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                 className={`py-3 px-4 rounded-2xl border font-semibold transition-colors ${
                                   formData.paintType === 'repaint'
                                     ? 'border-[var(--ph-primary)] bg-[var(--ph-primary)] text-white'
-                                    : 'border-black/10 bg-white/70 text-slate-900 hover:bg-white'
+                                    : 'border-black/10 bg-white text-slate-900 hover:bg-slate-50'
                                 }`}
                               >
                                 Repaint
@@ -474,7 +474,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                   className={`w-full rounded-2xl border p-4 text-left transition-colors ${
                                     active
                                       ? "border-[var(--ph-primary)] bg-[var(--ph-primary)]/10"
-                                      : "border-black/10 bg-white/70 hover:bg-white"
+                                      : "border-black/10 bg-white hover:bg-slate-50"
                                   }`}
                                 >
                                   <div className="flex items-start gap-3">
@@ -511,7 +511,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                     value={formData.address}
                                     onChange={handleInputChange}
                                     placeholder="House/Flat, Society, Area"
-                                    className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
+                                    className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-400 focus:border-[var(--ph-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30"
                                   />
                                 </div>
                                 <div>
@@ -526,7 +526,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                     placeholder="6 digits"
                                     inputMode="numeric"
                                     autoComplete="postal-code"
-                                    className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
+                                    className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-400 focus:border-[var(--ph-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30"
                                   />
                                 </div>
                               </div>
@@ -544,7 +544,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                           className={`p-3 rounded-2xl border text-center transition-colors ${
                                             formData.date === dateObj.fullDate
                                               ? 'border-[var(--ph-primary)] bg-[var(--ph-primary)] text-white'
-                                              : 'border-black/10 bg-white/70 text-slate-900 hover:bg-white'
+                                              : 'border-black/10 bg-white text-slate-900 hover:bg-slate-50'
                                           }`}
                                         >
                                           <div className="font-semibold">{dateObj.day}</div>
@@ -567,7 +567,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                           className={`w-full h-full p-3 rounded-2xl border text-center transition-colors ${
                                             formData.date && !getNextDates().some((d) => d.fullDate === formData.date)
                                               ? 'border-[var(--ph-primary)] bg-[var(--ph-primary)] text-white'
-                                              : 'border-black/10 bg-white/70 text-slate-900 hover:bg-white'
+                                              : 'border-black/10 bg-white text-slate-900 hover:bg-slate-50'
                                           }`}
                                         >
                                           <div className="font-semibold">
@@ -596,7 +596,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                                           className={`p-3 rounded-2xl border text-sm font-semibold transition-colors ${
                                             formData.time === slot
                                               ? 'border-[var(--ph-primary)] bg-[var(--ph-primary)] text-white'
-                                              : 'border-black/10 bg-white/70 text-slate-900 hover:bg-white'
+                                              : 'border-black/10 bg-white text-slate-900 hover:bg-slate-50'
                                           }`}
                                         >
                                           {slot}
@@ -629,7 +629,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                               onChange={handleInputChange}
                               placeholder="Enter your name"
                               autoComplete="name"
-                              className="w-full px-4 py-3 rounded-2xl border border-black/10 bg-white/80 text-base text-slate-950 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30 focus:border-[var(--ph-primary)]"
+                              className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-400 focus:border-[var(--ph-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ph-primary)]/30"
                               autoFocus
                             />
                           </div>
@@ -638,7 +638,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                             <label className="block text-sm font-semibold text-slate-950 mb-2">
                               Mobile number <span className="text-rose-600">*</span>
                             </label>
-                            <div className="flex items-center gap-2 rounded-2xl border border-black/10 bg-white/80 px-4 py-3 focus-within:ring-2 focus-within:ring-[var(--ph-primary)]/30 focus-within:border-[var(--ph-primary)]">
+                            <div className="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 focus-within:border-[var(--ph-primary)] focus-within:ring-2 focus-within:ring-[var(--ph-primary)]/30">
                               <span className="text-sm font-semibold text-slate-700">+91</span>
                               <input
                                 type="tel"
@@ -656,7 +656,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
                             </p>
                           </div>
 
-                          <div className="ph-glass rounded-3xl p-6">
+                          <div className="rounded-3xl border border-black/10 bg-[#F8F4EE] p-6">
                             <p className="text-xs tracking-[0.18em] uppercase text-slate-600">Summary</p>
                             <div className="mt-3 space-y-1.5 text-sm text-slate-700">
                               <p>
@@ -702,7 +702,7 @@ const GetQuoteModal: React.FC<GetQuoteModalProps> = ({ isOpen, onClose }) => {
 
                 {/* Footer */}
                 {!submittedQuoteId ? (
-                  <div className="px-5 py-4 border-t border-black/5 bg-white/90">
+                  <div className="border-t border-black/5 bg-[#F8F4EE] px-5 py-4">
                     {step === 2 ? (
                       <button
                         type="button"

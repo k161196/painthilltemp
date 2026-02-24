@@ -3,48 +3,59 @@ import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 const steps = [
   {
     title: "Inspect + estimate",
-    desc: "We visit, measure, and share a clear quote with timelines.",
+    desc: "We inspect surfaces, measure scope, and share a clear quote with timeline and material plan.",
   },
   {
-    title: "Prep like pros",
-    desc: "Masking, protection, crack filling, primer — the boring stuff done right.",
+    title: "Prep + protect",
+    desc: "Masking, crack repair, sanding, and primer. Preparation gets the same attention as final coats.",
   },
   {
-    title: "Paint + polish",
-    desc: "Two coats, sharp edges, cleanup, final walkthrough — done.",
+    title: "Paint + handover",
+    desc: "Layered application, edge detailing, cleanup, and walkthrough before sign-off.",
   },
 ];
 
 export default function Process() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
-      <div className="ph-glass rounded-3xl px-6 py-10 sm:px-10">
-        <div className="flex items-center gap-3">
-          <CheckBadgeIcon className="h-6 w-6 text-[var(--ph-primary)]" />
-          <p className="text-xs tracking-[0.18em] uppercase text-slate-600">How it works</p>
-        </div>
-        <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-950">
-          Predictable process. Beautiful finish.
-        </h2>
-        <p className="mt-3 text-base text-slate-700 max-w-2xl">
-          No surprises. You always know what’s next — and what “done” looks like.
-        </p>
-
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {steps.map((s, idx) => (
-            <div key={s.title} className="rounded-2xl border border-black/10 bg-white/70 p-6">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--ph-primary)] text-white font-semibold">
-                  {idx + 1}
-                </span>
-                <h3 className="text-lg font-semibold text-slate-950">{s.title}</h3>
-              </div>
-              <p className="mt-3 text-sm text-slate-700">{s.desc}</p>
+    <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+      <div className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-[0_16px_48px_rgba(2,6,23,0.1)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12">
+          <div className="bg-slate-950 px-6 py-10 text-white sm:px-10 lg:col-span-4 lg:py-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-white/80">
+              <CheckBadgeIcon className="h-4 w-4" />
+              Process
             </div>
-          ))}
+
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Structured workflow.
+              <span className="block text-[#F8F4EE]">Premium outcome.</span>
+            </h2>
+
+            <p className="mt-4 text-sm leading-relaxed text-white/80 sm:text-base">
+              Every project follows a fixed sequence so quality does not depend on guesswork.
+            </p>
+          </div>
+
+          <div className="bg-[#F8F4EE] px-6 py-10 sm:px-10 lg:col-span-8 lg:py-12">
+            <div className="space-y-5">
+              {steps.map((step, index) => (
+                <article
+                  key={step.title}
+                  className="relative rounded-2xl border border-black/10 bg-white p-6 shadow-[0_8px_24px_rgba(2,6,23,0.08)]"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--ph-primary)] text-sm font-semibold text-white">
+                      {index + 1}
+                    </span>
+                    <h3 className="text-lg font-semibold text-slate-950">{step.title}</h3>
+                  </div>
+                  <p className="text-sm text-slate-700 sm:text-base">{step.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
