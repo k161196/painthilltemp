@@ -1,0 +1,7 @@
+Contact: mailto:support@painthill.in
+Contact: tel:+918767520926
+Expires: 2027-03-11T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://painthill.in/.well-known/security.txt
+Policy: https://painthill.in/privacy
+Acknowledgments: https://painthill.in/about

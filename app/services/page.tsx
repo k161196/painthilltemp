@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
+import { buildMetadata } from "../utils/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Services",
   description:
     "Wall painting, texture finishes, interior styling, and commercial painting services by Paint Hill in Mumbai & Navi Mumbai.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 const services = [
   {

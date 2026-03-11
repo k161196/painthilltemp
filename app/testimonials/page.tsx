@@ -3,13 +3,14 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
 import QuoteCtaButton from "../components/QuoteCtaButton";
+import { buildMetadata } from "../utils/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Testimonials",
   description:
     "Real feedback from Paint Hill customers — wall painting, textures, and interior styling across Mumbai & Navi Mumbai.",
-  alternates: { canonical: "/testimonials" },
-};
+  path: "/testimonials",
+});
 
 const testimonials = [
   {

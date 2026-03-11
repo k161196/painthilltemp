@@ -2,15 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { blogPosts } from "./posts";
+import { buildMetadata } from "../utils/seo";
 
-const categories = ["All", "Color Trends", "Guide", "Tips", "Design Tips", "Color Theory", "Maintenance"];
-
-export const metadata: Metadata = {
-  title: "Blog",
+export const metadata: Metadata = buildMetadata({
+  title: "Painting Blog | Local Guides, Finish Tips, and Home Painting Advice",
   description:
-    "Expert tips, color trends, and practical guides on wall painting, texture finishes, and home interiors.",
-  alternates: { canonical: "/blog" },
-};
+    "Explore Paint Hill blog posts on painting services in Navi Mumbai, room-wise finish selection, prep checklists, and practical home painting tips.",
+  path: "/blog",
+  keywords: [
+    "painting services navi mumbai",
+    "wall painting guide",
+    "paint finish comparison",
+    "home repaint checklist",
+    "interior painting tips",
+  ],
+});
 
 export default function Blog() {
   return (

@@ -11,13 +11,14 @@ import {
 } from "@heroicons/react/24/outline";
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
+import { buildMetadata } from "../utils/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Careers",
   description:
     "Join Paint Hill in Mumbai. Explore current openings and build a career in painting and interior services.",
-  alternates: { canonical: "/careers" },
-};
+  path: "/careers",
+});
 
 const openPositions = [
   {

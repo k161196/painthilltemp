@@ -16,14 +16,30 @@ export function generateMetadata({
   if (!post) return { title: "Blog" };
 
   return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    title: post.metaTitle,
+    description: post.metaDescription,
+    keywords: post.keywords,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+      languages: {
+        "en-IN": `/blog/${post.slug}`,
+        "x-default": `/blog/${post.slug}`,
+      },
+    },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      type: "article",
+      siteName: "Paint Hill",
+      title: post.metaTitle,
+      description: post.metaDescription,
       url: `https://painthill.in/blog/${post.slug}`,
+      locale: "en_IN",
       images: [{ url: post.image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle,
+      description: post.metaDescription,
+      images: [post.image],
     },
   };
 }
@@ -44,5 +60,84 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     );
   }
 
-  return <BlogPostClient post={post} />;
+  const datePublished = new Date(post.date).toISOString();
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    image: [`https://painthill.in${post.image}`],
+    datePublished,
+    dateModified: datePublished,
+    author: {
+      "@type": "Organization",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Paint Hill",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://painthill.in/icon.svg",
+      },
+    },
+    mainEntityOfPage: `https://painthill.in/blog/${post.slug}`,
+    keywords: post.keywords.join(", "),
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://painthill.in/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://painthill.in/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://painthill.in/blog/${post.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <BlogPostClient post={post} />
+    </>
+  );
 }

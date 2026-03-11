@@ -9,13 +9,14 @@ import {
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
 import QuoteCtaButton from "../components/QuoteCtaButton";
+import { buildMetadata } from "../utils/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
     "About Paint Hill — trusted wall painting and texture experts serving Mumbai since 1993.",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 const stats = [
   { value: "30+", label: "Years of Experience" },

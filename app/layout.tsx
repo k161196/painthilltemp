@@ -11,20 +11,29 @@ export const metadata: Metadata = {
   },
   description:
     "Premium wall painting, texture work, and interior styling across Mumbai & Navi Mumbai. Get a free quote.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    url: "https://painthill.in/",
-    siteName: "Paint Hill",
-    title: "Paint Hill — Wall Painting & Texture in Mumbai",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-IN": "/",
+      "x-default": "/",
+    },
+  },
+    openGraph: {
+      type: "website",
+      url: "https://painthill.in/",
+      siteName: "Paint Hill",
+      title: "Paint Hill — Wall Painting & Texture in Mumbai",
     description:
       "Premium wall painting, texture work, and interior styling across Mumbai & Navi Mumbai. Get a free quote.",
+    locale: "en_IN",
+    images: [{ url: "/images/blog/blog-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Paint Hill — Wall Painting & Texture in Mumbai",
     description:
       "Premium wall painting, texture work, and interior styling across Mumbai & Navi Mumbai. Get a free quote.",
+    images: ["/images/blog/blog-1.jpg"],
   },
   icons: {
     icon: [
@@ -40,9 +49,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Paint Hill",
+    url: "https://painthill.in",
+    logo: "https://painthill.in/icon.svg",
+    email: "support@painthill.in",
+    telephone: "+91 8767520926",
+    areaServed: ["Mumbai", "Navi Mumbai"],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Paint Hill",
+    url: "https://painthill.in",
+    inLanguage: "en-IN",
+    publisher: {
+      "@type": "Organization",
+      name: "Paint Hill",
+    },
+  };
+
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body className="overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Navbar />
         <main className="overflow-x-hidden relative">{children}</main>
         <Footer />

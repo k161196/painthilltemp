@@ -11,13 +11,14 @@ import {
 } from "@heroicons/react/24/outline";
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
+import { buildMetadata } from "../utils/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Partners",
   description:
     "Partner with Paint Hill for reliable painting and interior project execution across Mumbai & Navi Mumbai.",
-  alternates: { canonical: "/partners" },
-};
+  path: "/partners",
+});
 
 const partners = [
   {

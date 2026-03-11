@@ -11,13 +11,14 @@ import {
 } from "@heroicons/react/24/outline";
 import PageHero from "../components/SitePages/PageHero";
 import Section from "../components/SitePages/Section";
+import { buildMetadata } from "../utils/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Support",
   description:
     "Support center for quotes, timelines, warranties, and after-service care from Paint Hill.",
-  alternates: { canonical: "/support" },
-};
+  path: "/support",
+});
 
 const supportCategories = [
   {

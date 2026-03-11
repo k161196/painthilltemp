@@ -72,13 +72,14 @@ export default function Gallery() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, index) => (
             <div key={item.id} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] shadow-lg">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
+                  priority={index === 0}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(min-width: 1150px) 33vw, (min-width: 768px) 50vw, 100vw"
                 />
