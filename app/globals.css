@@ -52,19 +52,6 @@ html,
   scrollbar-width: none;  /* Firefox */
 }
 
-html:not([data-scroll="0"]) .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: transparent;
-  transition: 0.2s ease-out;
-  z-index: 60;
-}
-
-html:not([data-scroll="0"]) .border-right {
-  height: 4rem;
-}
-
 html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
@@ -86,11 +73,14 @@ html {
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: transparent;
   border-bottom: 0;
-  z-index: 40;
+  z-index: 60;
   isolation: isolate;
+  transition: 0.2s ease-out;
 }
 
 .hover-underline {

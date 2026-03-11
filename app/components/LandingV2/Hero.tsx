@@ -53,7 +53,7 @@ export default function Hero() {
     <section className="ph-hero-bg relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-[#F8F4EE]/70 via-transparent to-transparent" />
 
-      <div className="mx-auto max-w-7xl px-6 pb-14 pt-16 lg:px-8 lg:pb-20 lg:pt-24">
+      <div className="mx-auto max-w-7xl px-6 pb-14 pt-10 lg:px-8 lg:pb-20 lg:pt-16">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/75 px-4 py-2 text-xs uppercase tracking-[0.18em] text-slate-700">
@@ -112,12 +112,14 @@ export default function Hero() {
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
+                    className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/20 bg-black/35 p-4 backdrop-blur-sm">
-                    <p className="text-xs uppercase tracking-[0.14em] text-white/80">Featured finish</p>
-                    <p className="mt-1 text-base font-semibold text-white">Warm matte palette with texture accent wall</p>
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
+                    <div className="w-full max-w-xl rounded-2xl border border-white/20 bg-black/35 p-4 backdrop-blur-sm">
+                      <p className="text-xs uppercase tracking-[0.14em] text-white/80">Featured finish</p>
+                      <p className="mt-1 text-base font-semibold text-white">Warm matte palette with texture accent wall</p>
+                    </div>
                   </div>
                 </div>
 

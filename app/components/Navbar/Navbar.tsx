@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <Disclosure as="nav" className="navbar">
       <>
-        <div className="relative mx-auto max-w-7xl px-4 py-3 md:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-0 md:px-6 lg:px-8">
           <div className="pointer-events-none absolute left-1/2 top-[54px] h-10 w-[92%] -translate-x-1/2 rounded-full bg-[var(--ph-primary)]/10 blur-2xl sm:top-[62px]" />
           <div className="relative flex h-14 items-center rounded-2xl border border-white/80 bg-white/95 px-3 shadow-[0_14px_36px_rgba(2,6,23,0.14)] backdrop-blur-md sm:h-16 sm:px-4">
             <div className="flex flex-1 items-center justify-between gap-4">
